@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Key Success Metrics | Cleartrip Holiday Strategy 2025</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="presentation-container">
+    <!-- Header -->
+    <header class="header">
+      <img src="../cleartrip logo.jpg" alt="Cleartrip Logo" class="logo" />
+      <h1 class="slide-title">Key Success Metrics</h1>
+      <div class="slide-number">15 / 16</div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-card">
+        <h2><i class="fas fa-chart-bar"></i> Key Success Metrics</h2>
+        
+        <h3><i class="fas fa-bullseye"></i> Metrics We Track</h3>
+        <div class="chart-container">
+          <canvas id="metricChart" width="460" height="300"></canvas>
+        </div>
+
+        <ul>
+          <li>Monitoring business, customer, and operational metrics ensures holistic growth.</li>
+        </ul>
+      </div>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+      <a href="slide14.html" class="nav-btn">
+        <i class="fas fa-arrow-left"></i> Previous
+      </a>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 93.75%"></div>
+      </div>
+      <a href="slide16.html" class="nav-btn">
+        Next <i class="fas fa-arrow-right"></i>
+      </a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const metricCtx = document.getElementById('metricChart');
+      new Chart(metricCtx, {
+        type: 'radar',
+        data: {
+          labels: ['Package Volume', 'AOV', 'Conversion Rate', 'NPS', 'Repeat Bookings', 'Platform Uptime'],
+          datasets: [{
+            label: 'Target Score (Illustrative)',
+            data: [80, 75, 70, 85, 65, 90],
+            backgroundColor: 'rgba(230, 74, 25, 0.2)',
+            borderColor: '#E64A19',
+            pointBackgroundColor: '#E64A19',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            r: {
+              beginAtZero: true,
+              max: 100,
+              grid: { color: 'rgba(230, 74, 25, 0.1)' },
+              pointLabels: { font: { size: 12 } }
+            }
+          },
+          plugins: {
+            legend: { display: false }
+          },
+          animation: {
+            duration: 2000,
+            easing: 'easeInOutQuart'
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html> 

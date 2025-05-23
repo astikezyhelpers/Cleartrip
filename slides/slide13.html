@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Financial Projections | Cleartrip Holiday Strategy 2025</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="presentation-container">
+    <!-- Header -->
+    <header class="header">
+      <img src="../cleartrip logo.jpg" alt="Cleartrip Logo" class="logo" />
+      <h1 class="slide-title">Financial Projections</h1>
+      <div class="slide-number">13 / 16</div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-card">
+        <h2><i class="fas fa-chart-line"></i> Financial Projections</h2>
+        
+        <h3><i class="fas fa-dollar-sign"></i> Revenue Target</h3>
+        <p>1,000 packages monthly @ ₹1L ($1.2K) AOV = <strong>₹10Cr ($1.2M) monthly</strong></p>
+        
+        <h3><i class="fas fa-pie-chart"></i> Projected Revenue Streams</h3>
+        <div class="chart-container">
+          <canvas id="revenueChart" width="480" height="280"></canvas>
+        </div>
+
+        <ul>
+          <li>Investment required in technology, marketing, team expansion, and partnership development.</li>
+        </ul>
+      </div>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+      <a href="slide12.html" class="nav-btn">
+        <i class="fas fa-arrow-left"></i> Previous
+      </a>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 81.25%"></div>
+      </div>
+      <a href="slide14.html" class="nav-btn">
+        Next <i class="fas fa-arrow-right"></i>
+      </a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const revCtx = document.getElementById('revenueChart');
+      new Chart(revCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Package Bookings', 'Partner Commissions', 'Ancillary Services', 'Premium Experiences'],
+          datasets: [{
+            data: [55, 20, 15, 10], // Illustrative distribution
+            backgroundColor: ['#E64A19', '#FF8A50', '#FFA483', '#FFE0D5'],
+            borderWidth: 2,
+            borderColor: '#FFFFFF'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { 
+              position: 'bottom',
+              labels: {
+                padding: 20,
+                font: { size: 12 }
+              }
+            }
+          },
+          animation: {
+            duration: 2000,
+            easing: 'easeInOutQuart'
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

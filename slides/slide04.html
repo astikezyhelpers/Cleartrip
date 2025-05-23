@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Current Performance | Cleartrip Holiday Strategy 2025</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="presentation-container">
+    <!-- Header -->
+    <header class="header">
+      <img src="../cleartrip logo.jpg" alt="Cleartrip Logo" class="logo" />
+      <h1 class="slide-title">Current Performance</h1>
+      <div class="slide-number">4 / 16</div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-card">
+        <h2><i class="fas fa-chart-line"></i> 2025 Performance Metrics</h2>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">₹3.6M ($43K)</span>
+            <span class="stat-label">Total GMV (Apr'25)</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">36</span>
+            <span class="stat-label">Packages Sold</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">₹1L ($1.2K)</span>
+            <span class="stat-label">Average Order Value</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">2.1%</span>
+            <span class="stat-label">Conversion Rate</span>
+          </div>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <h3><i class="fas fa-analytics"></i> Monthly Trends</h3>
+            <div class="chart-container">
+              <canvas id="performanceChart" width="600" height="350"></canvas>
+            </div>
+          </div>
+
+          <div>
+            <h3><i class="fas fa-search"></i> Key Observations</h3>
+            <ul>
+              <li><strong>Growth Momentum:</strong> April 2025 showed strong recovery with 36 packages and robust GMV performance, establishing positive trajectory.</li>
+              <li><strong>Revenue Consistency:</strong> Average order value maintained around ₹1L ($1.2K) across all months, indicating stable customer value proposition.</li>
+              <li><strong>Conversion Optimization:</strong> 2.1% lead-to-booking conversion rate provides clear baseline for improvement initiatives.</li>
+            </ul>
+
+            <div class="highlight-box">
+              <h4><i class="fas fa-exclamation-triangle"></i> Critical Success Factor</h4>
+              <p>Understanding and addressing April decline while scaling the proven Feb-Mar growth model is essential for achieving 1,000 monthly packages target.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+      <a href="slide03.html" class="nav-btn">
+        <i class="fas fa-arrow-left"></i> Previous
+      </a>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 25%"></div>
+      </div>
+      <a href="slide05.html" class="nav-btn">
+        Next <i class="fas fa-arrow-right"></i>
+      </a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const perfCtx = document.getElementById('performanceChart');
+      new Chart(perfCtx, {
+        data: {
+          labels: ['January', 'February', 'March', 'April'],
+          datasets: [{
+            type: 'bar',
+            label: 'Packages Sold',
+            data: [14, 19, 36, 29],
+            backgroundColor: 'rgba(255, 138, 80, 0.8)',
+            borderColor: '#FF8A50',
+            borderWidth: 2,
+            yAxisID: 'y'
+          }, {
+            type: 'line',
+            label: 'GMV (₹ Millions)',
+            data: [0.784, 1.349, 3.6, 2.523],
+            backgroundColor: '#FF5722',
+            borderColor: '#FF5722',
+            borderWidth: 3,
+            fill: false,
+            tension: 0.4,
+            pointRadius: 6,
+            pointHoverRadius: 8,
+            yAxisID: 'y1'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { 
+              position: 'bottom',
+              labels: {
+                padding: 20,
+                font: { size: 14 }
+              }
+            },
+            tooltip: {
+              mode: 'index',
+              intersect: false,
+              callbacks: {
+                label: function(context) {
+                  const inrValue = context.parsed.y;
+                  const usdValue = (context.parsed.y * 0.012).toFixed(1);
+                  return 'GMV: ₹' + inrValue + 'M ($' + usdValue + 'K)';
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              type: 'linear',
+              display: true,
+              position: 'left',
+              beginAtZero: true,
+              title: { 
+                display: true, 
+                text: 'Number of Packages',
+                font: { size: 14, weight: 'bold' }
+              },
+              grid: { color: 'rgba(255, 87, 34, 0.1)' }
+            },
+            y1: {
+              type: 'linear',
+              display: true,
+              position: 'right',
+              beginAtZero: true,
+              grid: { drawOnChartArea: false },
+              title: { 
+                display: true, 
+                text: 'Revenue (₹ Millions)',
+                font: { size: 14, weight: 'bold' }
+              }
+            }
+          },
+          animation: {
+            duration: 2000,
+            easing: 'easeInOutQuart'
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html> 

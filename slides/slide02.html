@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market at a Glance | Cleartrip Holiday Strategy 2025</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="presentation-container">
+    <!-- Header -->
+    <header class="header">
+      <img src="../cleartrip logo.jpg" alt="Cleartrip Logo" class="logo" />
+      <h1 class="slide-title">Market at a Glance</h1>
+      <div class="slide-number">2 / 16</div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-card">
+        <h2><i class="fas fa-globe-asia"></i> Indian Travel Market Overview</h2>
+        
+        <div class="two-column">
+          <div>
+            <h3><i class="fas fa-chart-pie"></i> Market Distribution</h3>
+            <div class="chart-container">
+              <canvas id="marketChart" width="400" height="300"></canvas>
+            </div>
+            
+            <div class="stats-grid">
+              <div class="stat-card">
+                <span class="stat-number">₹870K Cr ($104B)</span>
+                <span class="stat-label">Total Market Size</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">15%</span>
+                <span class="stat-label">CAGR Growth</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">4,000+</span>
+                <span class="stat-label">Market Players</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3><i class="fas fa-trending-up"></i> Key Market Insights</h3>
+            <ul>
+              <li><strong>Market Size:</strong> ₹870,000 Crores (~$104B) representing enormous growth opportunity in Indian travel sector.</li>
+              <li><strong>Growth Trajectory:</strong> Strong 15% CAGR driven by rising disposable income, aspirational travel, and digital adoption trends.</li>
+              <li><strong>Market Fragmentation:</strong> 85% market share held by 4,000+ smaller agents across India, creating consolidation opportunity.</li>
+              <li><strong>Digital Transformation:</strong> Only 15% currently online, presenting massive digitization opportunity for technology-first players.</li>
+            </ul>
+
+            <div class="highlight-box">
+              <h4><i class="fas fa-lightbulb"></i> Strategic Opportunity</h4>
+              <p>The fragmented market structure presents an ideal opportunity for Cleartrip to capture significant market share through superior technology and customer experience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+      <a href="slide01.html" class="nav-btn">
+        <i class="fas fa-arrow-left"></i> Previous
+      </a>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 12.5%"></div>
+      </div>
+      <a href="slide03.html" class="nav-btn">
+        Next <i class="fas fa-arrow-right"></i>
+      </a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const ctx = document.getElementById('marketChart');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Major Travel Agents (15%)', 'Smaller Agents PAN India (85%)'],
+          datasets: [{
+            data: [15, 85],
+            backgroundColor: [
+              'linear-gradient(135deg, #FF5722, #FF8A50)',
+              'rgba(255, 138, 80, 0.3)'
+            ],
+            borderWidth: 0,
+            hoverOffset: 10
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { 
+              position: 'bottom',
+              labels: {
+                padding: 20,
+                font: { size: 14 }
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  const inrValue = (context.parsed * 8.7).toFixed(0);
+                  const usdValue = (context.parsed * 1.04).toFixed(1);
+                  return context.label + ': ₹' + inrValue + 'K Cr ($' + usdValue + 'B)';
+                }
+              }
+            }
+          },
+          animation: {
+            animateRotate: true,
+            duration: 2000
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html> 
