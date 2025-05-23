@@ -1,0 +1,8 @@
+{
+  "build": {
+    "command": "echo 'No build step'"
+  },
+  "deploy": {
+    "startCommand": "npx serve ."
+  }
+}
