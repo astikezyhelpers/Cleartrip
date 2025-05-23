@@ -4,5 +4,8 @@
   },
   "deploy": {
     "startCommand": "npx serve ."
-  }
+  },
+  "scripts": {
+  "start": "serve slides"
+}
 }
